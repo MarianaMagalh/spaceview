@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpacieView</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+
+    <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyBC6wCZL3EZZeSL7ofcQ2-1n6nRsw7N6oE",
+        authDomain: "teste32-69efe.firebaseapp.com",
+        databaseURL: "https://teste32-69efe-default-rtdb.firebaseio.com",
+        projectId: "teste32-69efe",
+        storageBucket: "teste32-69efe.firebasestorage.app",
+        messagingSenderId: "1079767309693",
+        appId: "1:1079767309693:web:263693cbc3173652438014"
+
+    };
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+</script>
+<script src="mostraDados.js" defer></script>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #002a60, #356aa0);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        width: 320px;
+        text-align: center;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .header button {
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        color: #004080;
+        border: none;
+        border-radius: 50%;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .card {
+        background: #fff;
+        color: #000;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        text-align: left;
+    }
+
+    .card h2 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 5px;
+    }
+
+    .card p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    .status {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    .status span {
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+    }
+
+    .status .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+
+    .connected {
+        background: #28a745;
+    }
+
+    .disconnected {
+        background: #dc3545;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SPACEVIEW</h1>
+            <button>+</button>
+        </div>
+        <div class="card">
+            <h2>Sala 1</h2>
+            <p>Sala de Aula - Prédio 1</p>
+            <p>Porta: <span id="reading-Porta"></span></p>
+            <p>Luz: <span id="reading-Luz"></span></p>
+            <p>Energia: 120 Wh</p>
+            <div class="status">
+                <span>
+                    <div class="dot connected"></div>
+                    Dispositivo Conectado
+                </span>
+            </div>
+        </div>
+    </div>   
+</body>
+</html>
